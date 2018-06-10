@@ -49,7 +49,8 @@ export default {
           text: '登录成功！',
           footer: '<a href=""><router-link to="/login" class="signinButton">点击按钮，跳转首页。</router-link> </a>',
         })
-        window.location = 'http://127.0.0.1:8080/#/'
+        // window.location = 'http://127.0.0.1:8080/#/'
+        window.history.length > 1? this.$router.go(-1) : this.$router.push('/')
       }, (error) => {
         if(error.code === 211){
           swal('用户名不存在，请注册。')

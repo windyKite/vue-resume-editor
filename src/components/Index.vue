@@ -74,8 +74,12 @@ export default {
     getResume(user){
       let query = new AV.Query('User')
       return query.get(user.id).then((user)=>{
-        let {resume} = user.attributes
-        this.resume = resume
+        if(!user.attributes.resume){
+          this.resume = this.defaultResume
+        }else{
+          let {resume} = user.attributes
+          this.resume = resume
+        }
       },(y)=>{
         console.log(y)
       })

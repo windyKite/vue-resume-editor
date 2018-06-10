@@ -82,7 +82,8 @@ export default {
             text: '注册成功，已经自动登录！',
             footer: '<a href=""><router-link to="/login" class="signinButton">点击按钮，跳转首页。</router-link> </a>',
           })
-          window.location = 'http://127.0.0.1:8080/#/'
+          // window.history.length > 1 ? this.$router.go(-1): this.$router.push('/')
+          window.location = '/'
         }, (error) => {
           console.log(error)
         });
